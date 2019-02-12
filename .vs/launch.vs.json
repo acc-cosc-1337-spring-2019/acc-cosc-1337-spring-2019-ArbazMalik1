@@ -1,0 +1,12 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "02_decisions_exe.exe (homework\\02_decisions\\02_decisions_exe.exe)",
+      "name": "02_decisions_exe.exe (homework\\02_decisions\\02_decisions_exe.exe)"
+    }
+  ]
+}
