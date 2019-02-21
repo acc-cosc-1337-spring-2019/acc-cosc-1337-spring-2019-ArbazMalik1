@@ -14,11 +14,11 @@ DON'T FORGET TO WRITE TEST CASE.  See file loop_test.cpp
 
 int factorial(int num)
 {
-	int factorial;
+	int fact = 0;
 	for (int i = 1; i <= num; ++i)
 	{
-		factorial *= i;
+		fact *= i;
 	}
 
-	return factorial;
+	return fact;
 }

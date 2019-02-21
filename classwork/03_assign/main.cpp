@@ -1,7 +1,6 @@
 #include <iostream>
 //write include statements
-#include <loops.h>
-#include <loops.cpp>
+#include "loops.h"
 /*
 Use a do while loop to prompt the user for 
 a number, call the factorial function, and display the number's
