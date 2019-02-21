@@ -1,9 +1,7 @@
 #include "dna.h"
 #include<iostream>
-#include<string.h>
-#include <cstring>
+#include<string>
 
-using namespace std;
 
 /*
 Write code for function get_gc_content that accepts
@@ -15,7 +13,7 @@ Return quotient.
 
 double get_gc_content(const std::string & dna)
 {
-	int count = 0;
+	double count = 0;
 
 	for (auto d : dna)
 	{
@@ -38,10 +36,9 @@ std::string get_reverse_string(std::string dna)
 
 	int i, j;
 	char temp;
-	cout << "\nReverse string before : " << dna;
 
 
-	j = dna.size() - 1;
+	j = dna.length() - 1;
 
 	for (i = 0; i < j; i++, j--)
 	{
@@ -49,7 +46,6 @@ std::string get_reverse_string(std::string dna)
 		dna[i] = dna[j];
 		dna[j] = temp;
 	}
-	cout << "\nReverse string after : " << dna;
 
 
 	return dna;
@@ -71,21 +67,27 @@ std::string get_dna_complement(std::string dna)
 {
 
 	std::string reverse = get_reverse_string(dna);
-	cout << "\n string before  : " << reverse;
 
 
 	for (auto& d : reverse)
 	{
-		if (reverse[d] == 'A')
-			reverse[d] = 'T';
-		if (reverse[d] == 'T')
-			reverse[d] = 'A';
-		if (reverse[d] == 'C')
-			reverse[d] = 'G';
-		if (reverse[d] == 'G')
-			reverse[d] = 'C';
+		if (d == 'A')
+		{
+			d = 'T';
+		}
+		else if (d == 'T')
+		{
+			d = 'A';
+		}
+		else if (d == 'C')
+		{
+			d = 'G';
+		}
+		else if (d == 'G')
+		{
+			d = 'C';
+		}
 	}
-	cout << "\n string after: " << reverse;
 
 	return reverse;
 }
