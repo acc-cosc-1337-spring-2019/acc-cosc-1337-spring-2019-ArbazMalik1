@@ -1,7 +1,8 @@
 
-#include <string.h>
+#include <string>
 #include <iostream>
 
+using std::string;
 
 //write include required statements
 

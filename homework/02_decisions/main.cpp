@@ -1,8 +1,8 @@
 #include<iostream>
 //write include statements
-#include <decisions.h>
-#include <decisions.cpp>
-#include <string.h>
+#include "decisions.h"
+
+#include <string>
 /*
 In main write code to capture a letter_grade and credit_hours from the keyboard:
 
@@ -25,7 +25,7 @@ GPA 3.0
 */
 int main() 
 {
-	char grade1, grade2, grade3;
+	string grade1, grade2, grade3;
 	int grade_point1, grade_point2, grade_point3, credit_hour1, credit_hour2, credit_hour3, credit_point1, credit_point2, credit_point3;
 	double hours_sum, points_sum;
 	
