@@ -14,7 +14,7 @@ DON'T FORGET TO WRITE TEST CASE.  See file loop_test.cpp
 
 int factorial(int num)
 {
-	int fact = 0;
+	int fact = 1;
 	for (int i = 1; i <= num; ++i)
 	{
 		fact *= i;
