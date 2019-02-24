@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\homework\\03_iteration_test"
+    "\\homework",
+    "\\homework\\03_iteration_test",
+    "\\homework\\04_vectors",
+    "\\homework\\04_vectors_test"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\homework\\04_vectors_test\\vectors_test.cpp",
   "PreviewInSolutionExplorer": false
 }
