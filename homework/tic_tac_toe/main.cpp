@@ -1,29 +1,41 @@
-#include "tic_tac_toe.h"
-#include<string>
+#include "tic_tac_toe_manager.h"
+#include <string>
 #include <iostream>
-using namespace std;
+using std::cout; using std::cin;
 
 
-
-
-int main() 
+int main()
 {
-/*
-1) Create a program that will play the TicTacToe game until the user opts to quit (outer loop).
-2) Start the game with X or O.
-3) Create another loop(inner loop) that iterates until a winner is determined
-4) In the loop, prompt the user for a position from 1 through 9 and update board position.(Assume user never chooses a taken position)
-5) Display the current status of the board.
-6) After a winner is determined prompt user if they want to play another game.
-*/
-	std::string first_player;
-	int x;
-	TicTacToe Tic;
-	first_player = "O";
-	Tic.start_game(first_player);
-	Tic.mark_board(1);
+	std::string first;
+	char choice;
+	int position;
+	TicTacToeManager manager;
 
-	cin >> x;
+	do
+	{
+		TicTacToe tic_tac_toe;
+
+		cout << "First player: ";
+		cin >> first;
+		tic_tac_toe.start_game(first);
+
+		while (tic_tac_toe.game_over() == false)
+		{
+			cout << "Enter position for " << tic_tac_toe.get_player();
+			cin >> position;
+			tic_tac_toe.mark_board(position);
+			tic_tac_toe.display_board();
+			cout << "\n\n";
+		}
+
+		manager.save_game(tic_tac_toe);
+
+		cout << "play again";
+		cin >> choice;
+
+	} while (choice == 'y');
+
+	manager.display_history();
 
 	return 0;
 }
