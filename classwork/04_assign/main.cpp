@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include "sequence.h"
+
+using std::cout; using std::cin;
+
 /*
 Write code to create a vector of string names, add the values "John", "Mary", "Patty",
 "Sam" to the vector, call the function display_vector and pass the names vector as
@@ -10,6 +16,20 @@ give you a valid name.
 
 int main()
 {
+	std::vector<std::string> names = { "John", "Mary", "Patty", "Sam" };
+	display_vector(names);
+	std::string search, replace;
+
+	cout << "Search name: ";
+	cin >> search;
+
+	cout << "Replace: ";
+	cin >> replace;
+
+	update_vector(names, search, replace);
+	display_vector(names);
+
+
+
 	return 0;
 }
-
