@@ -14,9 +14,9 @@ vector values 150,120,11,990,88888 returns 88888
 */
 TEST_CASE("Get max from vector")
 {
-	std::vector<int> get_max_from_vector = { 3, 8, 1, 99, 1000 };
+	/*std::vector<int> get_max_from_vector = { 3, 8, 1, 99, 1000 };
 	std::vector<int> get_max_from_vector = { 15, 12, 11, 99, 88 };
-	std::vector<int> get_max_from_vector = { 150, 120, 11, 990, 88888 };
+	std::vector<int> get_max_from_vector = { 150, 120, 11, 990, 88888 };*/
 }
 
 /*
