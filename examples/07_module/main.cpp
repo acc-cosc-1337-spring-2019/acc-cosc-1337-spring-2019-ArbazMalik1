@@ -1,26 +1,31 @@
 //main
 #include <iostream>
-#include <memory>
-#include <vector>
+#include<memory>
+#include<vector>
 #include "shape.h"
 #include "line.h"
 #include "circle.h"
+
 int main() 
 {
+	//Shape s_abtract; can't create instance; pure virtual
+	//function makes it an abstract class
+
 	Shape* line = new Line();//creates dynamic memory (heap)
 	line->draw();
 	delete line;
 
-	std::vector<Shape*> shapes(new Line(), new Circle());
+	//vector of Shape pointers
+	std::vector<Shape*> shapes{new Line(), new Circle()};
 
-	for{auto& shape : shapes}
+	for (auto& shape : shapes) 
 	{
 		shape->draw();
 	}
 
-	std:cout << "\n";
-
-	for{auto* shape : shapes}
+	std::cout << "\n";
+	
+	for (auto* shape : shapes)
 	{
 		shape->draw();
 	}
@@ -28,13 +33,18 @@ int main()
 	std::cout << "\n";
 
 	//Shape instance using Smart Pointer
-	std::unique_ptr < Shape> 1 = std::make_unique<Line>();
-	1->draw;
+	std::unique_ptr<Shape> l = std::make_unique<Line>();
+	l->draw();
 
 	//vector of Shape instances using Smart Pointers
-	std::vector <std::_Unique_tag_refwrap_has_ctor_from < Shape >> shaps;
-	shaps.push_back(std::make_unique< line >());
-	shaps.push_back(std::make_unique< Circle >())
+	std::vector <std::unique_ptr < Shape >> shaps;
+	shaps.push_back(std::make_unique< Line >());
+	shaps.push_back(std::make_unique< Circle >());
+
+	for (auto & shape : shaps)
+	{
+		shape->draw();
+	}
 
 	return 0;
 }

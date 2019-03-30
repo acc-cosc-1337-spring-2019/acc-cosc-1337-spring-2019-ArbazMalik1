@@ -1,9 +1,9 @@
 #include "circle.h"
-#include <iostream>
+#include<iostream>
 
 //cpp
 
-void Circle::draW()
+void Circle::draw()
 {
 	std::cout << "Draw circle...\n";
 }

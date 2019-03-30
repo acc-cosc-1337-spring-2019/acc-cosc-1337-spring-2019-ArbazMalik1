@@ -1,8 +1,8 @@
 #include "line.h"
-#include <iostream>
+#include<iostream>
 //cpp
 
-void Line : draw()
+void Line::draw()
 {
 	std::cout << "Draw line..\n";
 }
