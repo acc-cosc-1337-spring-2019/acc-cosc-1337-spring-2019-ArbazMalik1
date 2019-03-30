@@ -9,7 +9,7 @@ public:
 	bool game_over();
 	void mark_board(int position);
 	void display_board() const;
-	std::string get_winner();
+	std::string get_winner() const;
 
 private:
 	std::string next_player;
