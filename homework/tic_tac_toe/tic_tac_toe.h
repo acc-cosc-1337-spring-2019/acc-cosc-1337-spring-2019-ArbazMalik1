@@ -1,10 +1,20 @@
+#ifndef TIC_TAC_TOE
+#define TIC_TAC_TOE
+
 #include<iostream>
 #include<string>
 #include<vector>
 
+enum GameType
+{
+	three = 3,
+	four = 4
+};
+
 class TicTacToe 
 {
 public:
+	TicTacToe(GameType game_type) : pegs(game_type * game_type, " ") {}
 	void start_game(std::string first_player);
 	std::string get_player() const;
 	bool game_over();
@@ -14,16 +24,21 @@ public:
 		const TicTacToe & t);
 	friend std::istream & operator >> (std::istream & out,
 		TicTacToe & t);
+
+protected:
+	std::vector<std::string> pegs;
+	virtual bool check_column_win();
+	virtual bool check_row_win();
+	virtual bool check_diagonal_win();
+
 private:
 	std::string next_player;
-	std::vector<std::string> pegs{ 9, " " };
 	std::string winner;
 
 	void set_next_player();
-	bool check_column_win();
-	bool check_row_win();
-	bool check_diagonal_win();
 	void clear_board();
 	bool check_board_full();
 	void set_winner();
 };
+
+#endif // !TIC_TAC_TOE
