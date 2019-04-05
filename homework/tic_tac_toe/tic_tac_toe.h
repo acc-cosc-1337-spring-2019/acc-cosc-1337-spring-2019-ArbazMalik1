@@ -11,7 +11,7 @@ enum GameType
 	four = 4
 };
 
-class TicTacToe 
+class TicTacToe
 {
 public:
 	TicTacToe(GameType game_type) : pegs(game_type * game_type, " ") {}

@@ -6,7 +6,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test first player X") 
+TEST_CASE("Test first player X")
 {
 	TicTacToe* tic_tac_toe;
 	tic_tac_toe = new TicTacToe3();
@@ -21,10 +21,9 @@ TEST_CASE("Test win by first column", "[X wins first column]")
 		123
 		456
 		789
-
-	   First column win are 
+	   First column win are
 	   user positions 1,4, and 7
-       vector view: 0, 3, and 6
+	   vector view: 0, 3, and 6
 	   */
 	TicTacToe* board = new TicTacToe3();
 	board->start_game("X");
@@ -45,7 +44,7 @@ TEST_CASE("Test win by first column", "[X wins first column]")
 }
 
 TEST_CASE("Test win by second column", "[X wins second column]")
-{ 
+{
 	TicTacToe* board = new TicTacToe3();
 	board->start_game("X");
 	REQUIRE(board->game_over() == false);
@@ -65,7 +64,7 @@ TEST_CASE("Test win by second column", "[X wins second column]")
 }
 
 TEST_CASE("Test win by third column", "[X wins third column]")
-{ 
+{
 	TicTacToe* board = new TicTacToe3();
 	board->start_game("X");
 	REQUIRE(board->game_over() == false);

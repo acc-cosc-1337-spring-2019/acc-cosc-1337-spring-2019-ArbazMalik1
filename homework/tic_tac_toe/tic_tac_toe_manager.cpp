@@ -1,24 +1,38 @@
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 
 //Write class function implementations here
 
-void TicTacToeManager::save_game(const TicTacToe game)
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
 {
 	update_winner_count(game.get_winner());
-	games.push_back(game);
+	games.push_back(std::move(int));
+}
+
+std::unique_ptr<TicTacToe> TicTacToeManager::get_game(GameType game_type)
+{
+	if (game_type == GameType::three)
+	{
+		return std::make_unique<TicTacToe3>();
+	}
+	else
+	{
+		return std::make_unique<TicTacToe3>();
+	}
 }
 
 void TicTacToeManager::update_winner_count(std::string winner)
 {
-	if (winner == "C") 
+	if (winner == "C")
 	{
 		ties++;
 	}
-	else if (winner == "X") 
+	else if (winner == "X")
 	{
 		x_win++;
 	}
-	else if (winner == "O") 
+	else if (winner == "O")
 	{
 		o_win++;
 	}

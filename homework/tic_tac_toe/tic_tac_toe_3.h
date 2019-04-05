@@ -2,7 +2,7 @@
 #define TIC_TAC_TOE_3
 #include "tic_tac_toe.h"
 
-class TicTacToe3 : public TicTacToe 
+class TicTacToe3 : public TicTacToe
 {
 public:
 	TicTacToe3() : TicTacToe(GameType::three) {}
