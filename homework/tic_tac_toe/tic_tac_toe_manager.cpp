@@ -10,7 +10,7 @@ void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game)
 	games.push_back(std::move(int));
 }
 
-std::unique_ptr<TicTacToe> TicTacToeManager::get_game(GameType game_type)
+std::unique_ptr<TicTacToe> TicTacToeManager::get_game(int game_type)
 {
 	if (game_type == GameType::three)
 	{
@@ -20,6 +20,11 @@ std::unique_ptr<TicTacToe> TicTacToeManager::get_game(GameType game_type)
 	{
 		return std::make_unique<TicTacToe3>();
 	}
+}
+
+const std::vector<std::unique_ptr<TicTacToe>>& TicTacToeManager::get_games()
+{
+	return games;
 }
 
 void TicTacToeManager::update_winner_count(std::string winner)

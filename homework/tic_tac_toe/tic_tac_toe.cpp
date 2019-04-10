@@ -125,3 +125,9 @@ std::istream & operator>>(std::istream & in, TicTacToe & t)
 
 	return in;
 }
+
+const vector<string>& TicTacToe::get_pegs()
+{
+	return pegs;
+}
+

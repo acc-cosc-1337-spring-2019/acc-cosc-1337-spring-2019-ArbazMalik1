@@ -24,6 +24,7 @@ public:
 		const TicTacToe & t);
 	friend std::istream & operator >> (std::istream & out,
 		TicTacToe & t);
+	const vector<string>& get_pegs();
 
 protected:
 	std::vector<std::string> pegs;
