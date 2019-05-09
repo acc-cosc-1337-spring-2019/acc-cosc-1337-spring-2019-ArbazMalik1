@@ -1,6 +1,8 @@
 #include "tic_tac_toe_data.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include <fstream>      // std::fstream
+#include<iostream>
 
 /*
 Write the code to save a vector of string into a file.
@@ -12,6 +14,13 @@ writing and append.
 void TicTacToeData::save_game(const vector<string>& pegs)
 {
 
+	std::fstream fs;
+	fs.open("c:\test.txt", std::fstream::out | std::fstream::app);
+	for (int i = 0; i < pegs.size(); i++) {
+		fs << (" %S\n", pegs[i]);
+	}
+
+	fs.close();
 }
 
 /*
@@ -43,6 +52,40 @@ Create unique ptr of TicTacToe boards
 vector<unique_ptr<TicTacToe>> TicTacToeData::get_games()
 {
 	vector<unique_ptr<TicTacToe>> games;
+	fstream file(file_name, std::ios::in);
+	vector<string>game;
+	if (file.is_open())
+	{
+		string line = {};
+		while (getline(file, line))
+		{
+			for (auto ch : line)
+			{
+				game.push_back(std::string(1, ch));
+			}
+		}
+
+
+		std::unique_ptr<TicTacToe> board;
+		if (line.size() == 9)
+		{
+			board = std::make_unique<TicTacToe3>(game);
+
+		}
+		else
+		{
+			board = std::make_unique<TicTacToe4>(game);
+
+		}
+
+
+		games.push_back(move(board));
+		file.close();
+	}
+	else
+	{
+		std::cout << "Unable to open file";
+	}
 
 	return games;
 }

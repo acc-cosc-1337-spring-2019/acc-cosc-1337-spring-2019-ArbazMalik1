@@ -1,5 +1,9 @@
 #include "tic_tac_toe_3.h"
 
+TicTacToe3::TicTacToe3(std::vector<std::string> p)
+{
+	determine_winner();
+}
 /*
 Win by column if and return true if
 0,3, and 6 are equal
@@ -44,6 +48,7 @@ Win diagonally
 0 1 2
 3 4 5
 6 7 8
+
 */
 bool TicTacToe3::check_diagonal_win()
 {
@@ -60,3 +65,4 @@ bool TicTacToe3::check_diagonal_win()
 		return false;
 	}
 }
+

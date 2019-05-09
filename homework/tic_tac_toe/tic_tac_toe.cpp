@@ -15,7 +15,7 @@ std::string TicTacToe::get_player() const
 
 bool TicTacToe::game_over()
 {
-	if (check_column_win() || check_row_win() || check_diagonal_win() || check_board_full())
+	if(check_column_win() || check_row_win() || check_diagonal_win() || check_board_full())
 	{
 		set_winner();
 		return true;
@@ -36,11 +36,11 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::set_next_player()
 {
-	if (next_player == "X")
+	if (next_player == "X") 
 	{
 		next_player = "O";
 	}
-	else
+	else 
 	{
 		next_player = "X";
 	}
@@ -56,9 +56,9 @@ void TicTacToe::clear_board()
 
 bool TicTacToe::check_board_full()
 {
-	for (auto p : pegs)
+	for (auto p : pegs) 
 	{
-		if (p == " ")
+		if (p == " ") 
 		{
 			return false;
 		}
@@ -72,30 +72,60 @@ std::string TicTacToe::get_winner() const
 	return winner;
 }
 
-bool TicTacToe::check_column_win()
+void TicTacToe::set_winner() 
 {
-	return false;
+	if (check_board_full()) 
+	{
+		winner = "C";
+	}
+	else 
+	{
+		winner = next_player;
+	}
 }
 
-bool TicTacToe::check_row_win()
+const std::vector<std::string>& TicTacToe::get_pegs() 
 {
-	return false;
+	return pegs;
 }
 
-bool TicTacToe::check_diagonal_win()
+/*
+Write code to determine winner.
+If board full game is a tie return.
+  otherwise
+  Iterate vector of string and count Xs, and 0s compare x to o count to determine winner, set the winner class string variable
+*/
+void TicTacToe::determine_winner()
 {
-	return false;
-}
-
-void TicTacToe::set_winner()
-{
-	if (check_board_full())
+	if (check_board_full() == true)
 	{
 		winner = "C";
 	}
 	else
 	{
-		winner = next_player;
+		int x = 0;
+		int o = 0;
+		for (auto s : pegs)
+		{
+			if (s == "X")
+			{
+				x++;
+			}
+			else if (s == "O")
+			{
+				o++;
+			}
+
+		}
+		if (x > o)
+		{
+			winner = "X";
+		}
+		else
+		{
+			winner = "O";
+		}
+
 	}
 }
 
@@ -104,13 +134,13 @@ std::ostream & operator<<(std::ostream & out, const TicTacToe & t)
 	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
 	{
 		std::cout << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
-
-		if (t.pegs.size() == 16)
+		
+		if (t.pegs.size() == 16) 
 		{
-			std::cout << "|" << t.pegs[i + 3];
+			std::cout <<"|" << t.pegs[i + 3];
 		}
-
-		std::cout << "\n";
+		
+		std::cout<< "\n";
 	}
 
 	return out;
@@ -125,9 +155,3 @@ std::istream & operator>>(std::istream & in, TicTacToe & t)
 
 	return in;
 }
-
-const vector<string>& TicTacToe::get_pegs()
-{
-	return pegs;
-}
-
